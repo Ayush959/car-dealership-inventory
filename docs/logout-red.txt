@@ -1,0 +1,84 @@
+
+> motorhaus-inventory@1.0.0 test:e2e
+> playwright test logout.spec.js
+
+
+Running 2 tests using 1 worker
+
+(node:16212) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 e2e/logout.spec.js:7:3 › logout stays reachable on compact desktop and survives reload (5.8s)
+(node:16483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 e2e/logout.spec.js:7:3 › logout stays reachable on mobile and survives reload (5.8s)
+
+
+  1) e2e/logout.spec.js:7:3 › logout stays reachable on compact desktop and survives reload ────────
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator: locator('.topbar').getByRole('button', { name: 'Sign out' })
+    Expected: in viewport
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeInViewport" locator('.topbar').getByRole('button', { name: 'Sign out' }) with timeout 5000ms
+      - waiting for locator('.topbar').getByRole('button', { name: 'Sign out' })
+
+
+      14 |
+      15 |     const logout = page.locator(".topbar").getByRole("button", { name: "Sign out" });
+    > 16 |     await expect(logout).toBeInViewport();
+         |                          ^
+      17 |     await expect(logout).toHaveText("Sign out");
+      18 |     await logout.click();
+      19 |
+        at /home/ayush/projects/codeforge/car-dealership-inventory/frontend/e2e/logout.spec.js:16:26
+
+    Error Context: test-results/logout-logout-stays-reacha-154cb-desktop-and-survives-reload/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/logout-logout-stays-reacha-154cb-desktop-and-survives-reload/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/logout-logout-stays-reacha-154cb-desktop-and-survives-reload/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e/logout.spec.js:7:3 › logout stays reachable on mobile and survives reload ─────────────────
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator: locator('.topbar').getByRole('button', { name: 'Sign out' })
+    Expected: in viewport
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeInViewport" locator('.topbar').getByRole('button', { name: 'Sign out' }) with timeout 5000ms
+      - waiting for locator('.topbar').getByRole('button', { name: 'Sign out' })
+
+
+      14 |
+      15 |     const logout = page.locator(".topbar").getByRole("button", { name: "Sign out" });
+    > 16 |     await expect(logout).toBeInViewport();
+         |                          ^
+      17 |     await expect(logout).toHaveText("Sign out");
+      18 |     await logout.click();
+      19 |
+        at /home/ayush/projects/codeforge/car-dealership-inventory/frontend/e2e/logout.spec.js:16:26
+
+    Error Context: test-results/logout-logout-stays-reachable-on-mobile-and-survives-reload/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/logout-logout-stays-reachable-on-mobile-and-survives-reload/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/logout-logout-stays-reachable-on-mobile-and-survives-reload/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    e2e/logout.spec.js:7:3 › logout stays reachable on compact desktop and survives reload ─────────
+    e2e/logout.spec.js:7:3 › logout stays reachable on mobile and survives reload ──────────────────
