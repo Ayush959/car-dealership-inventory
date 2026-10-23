@@ -1,0 +1,40 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________________ test_development_secret_survives_restart ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-ayush/pytest-1/test_development_secret_surviv0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79080a14e1e0>
+
+    def test_development_secret_survives_restart(tmp_path, monkeypatch):
+        from backend import app
+        monkeypatch.setattr(app, "ROOT", tmp_path)
+        monkeypatch.delenv("JWT_SECRET", raising=False)
+>       first = app.local_secret()
+                ^^^^^^^^^^^^^^^^^^
+
+backend/tests/test_api.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def local_secret():
+        configured = os.getenv("JWT_SECRET")
+        if configured:
+            if len(configured) < 32:
+                raise RuntimeError("JWT_SECRET must contain at least 32 characters")
+            return configured
+        # A generated development key survives restarts and is never committed.
+        path = ROOT / ".jwt-secret"
+        try:
+>           with path.open("x", opener=lambda p, flags: os.open(p, flags, 0o600)) as file:
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: Path.open() got an unexpected keyword argument 'opener'
+
+backend/app.py:31: TypeError
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/starlette/testclient.py:51
+  /home/ayush/projects/codeforge/car-dealership-inventory/.venv/lib/python3.12/site-packages/starlette/testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED backend/tests/test_api.py::test_development_secret_survives_restart - ...
+1 failed, 55 deselected, 1 warning in 0.26s

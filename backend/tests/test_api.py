@@ -168,3 +168,35 @@ def test_missing_vehicle_returns_404(setup, method, suffix, body):
     client, path = setup
     auth = headers(client, path, True)
     assert client.request(method, f"/api/vehicles/999{suffix}", headers=auth, json=body).status_code == 404
+
+
+def test_development_secret_survives_restart(tmp_path, monkeypatch):
+    from backend import app
+    monkeypatch.setattr(app, "ROOT", tmp_path)
+    monkeypatch.delenv("JWT_SECRET", raising=False)
+    first = app.local_secret()
+    assert len(first) >= 32
+    assert app.local_secret() == first
+    assert (tmp_path / ".jwt-secret").stat().st_mode & 0o777 == 0o600
+
+
+def test_configured_secret_requires_minimum_length(monkeypatch):
+    from backend.app import local_secret
+    monkeypatch.setenv("JWT_SECRET", "short")
+    with pytest.raises(RuntimeError):
+        local_secret()
+    monkeypatch.setenv("JWT_SECRET", SECRET)
+    assert local_secret() == SECRET
+
+
+def test_health_checks_database(setup):
+    client, _ = setup
+    assert client.get("/api/health").json() == {"status": "ok"}
+
+
+def test_deleted_user_token_is_rejected(setup):
+    client, path = setup
+    auth = headers(client)
+    with sqlite3.connect(path) as db:
+        db.execute("DELETE FROM users")
+    assert client.get("/api/auth/me", headers=auth).status_code == 401
