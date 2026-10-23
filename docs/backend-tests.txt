@@ -1,0 +1,20 @@
+....................................................                     [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.12/site-packages/starlette/testclient.py:51
+  /home/ayush/projects/codeforge/car-dealership-inventory/.venv/lib/python3.12/site-packages/starlette/testclient.py:51: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name                  Stmts   Miss  Cover   Missing
+---------------------------------------------------
+backend/__init__.py       0      0   100%
+backend/app.py          141     16    89%   23-35, 57, 70-72
+backend/database.py      22      0   100%
+backend/schemas.py       19      0   100%
+backend/security.py      17      0   100%
+---------------------------------------------------
+TOTAL                   199     16    92%
+52 passed, 1 warning in 9.18s
