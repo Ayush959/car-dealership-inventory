@@ -264,6 +264,16 @@ export default function App() {
     setVehicles([]);
     setModal(null);
     setError("");
+    setToast("");
+    setMobileNav(false);
+    setSearch("");
+    setCategory("All vehicles");
+    setSort("featured");
+    setFilters(false);
+    setMin("");
+    setMax("");
+    setStockOnly(false);
+    setFormError("");
   }
   async function load() {
     setLoading(true);
@@ -389,13 +399,6 @@ export default function App() {
             <strong>{session.user.name}</strong>
             <span>{admin ? "Administrator" : "Member"}</span>
           </div>
-          <button
-            aria-label="Sign out"
-            className="icon-button"
-            onClick={logout}
-          >
-            <LogOut size={17} />
-          </button>
         </div>
       </aside>
       <main className="main">
@@ -416,6 +419,10 @@ export default function App() {
             <span className="role-pill">
               {admin ? "Admin workspace" : "Member workspace"}
             </span>
+            <button className="button sign-out-button" onClick={logout}>
+              <LogOut size={15} aria-hidden="true" />
+              Sign out
+            </button>
           </div>
         </header>
         <div className="page-content">

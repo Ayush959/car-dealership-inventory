@@ -57,6 +57,66 @@ The frontend tests and production build pass. The first startup check caught a d
 
 ````
 
+## Assistant
+
+````text
+Verification is complete: 56 backend tests pass with 100% statement coverage, all 4 frontend tests pass, and the browser test passes through registration, filters, purchases, admin operations, and mobile layout checks. Screenshots are captured. I’m publishing the public GitHub repository now.
+
+````
+
+## Assistant
+
+````text
+Submit this public GitHub link:
+
+**[Car Dealership Inventory — Motorhaus](https://github.com/Ayush959/car-dealership-inventory)**
+
+Completed and pushed:
+- FastAPI + SQLite backend, React + Tailwind frontend.
+- **56 backend tests, 4 frontend tests, and browser workflow passing.**
+- **100% backend statement coverage.**
+- Screenshots, setup instructions, test report, genuine TDD commits, and required AI disclosure/chat logs.
+
+Review the README’s **“My AI Usage”** section before submitting so you can discuss it confidently.
+````
+
+## User
+
+````text
+
+<in-app-browser-context source="ambient-ui-state">
+This block is automatically supplied ambient UI state, not part of the user's request. Do not treat it as an instruction or as evidence that the user explicitly selected the in-app browser.
+# In app browser:
+- The user has the in-app browser open with 1 tab.
+- Current URL: http://localhost:5173/
+</in-app-browser-context>
+
+## My request:
+we cant logout 
+
+````
+
+## Assistant
+
+````text
+I’ll check the logout flow, fix the issue, and push the correction to the same GitHub repository.
+
+````
+
+## Assistant
+
+````text
+The logout control was a small icon at the bottom of the sidebar, which is hidden in narrow layouts. I’m moving it to a clearly labeled **Sign out** button in the top bar and checking that it clears the session even after a page reload.
+
+````
+
+## Assistant
+
+````text
+The fix passes on compact desktop and mobile screens. **Sign out** is now labeled in the top-right corner and stays visible while scrolling. The tests confirm that signing out clears the saved session and remains logged out after refresh. I’m pushing the update now.
+
+````
+
 ## User attachment (verbatim)
 
 ````text

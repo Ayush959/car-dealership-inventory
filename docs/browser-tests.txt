@@ -3,10 +3,12 @@
 > playwright test
 
 
-Running 1 test using 1 worker
+Running 3 tests using 1 worker
 
-(node:15725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:17249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-  ✓  1 e2e/inventory.spec.js:4:1 › complete dealership workflow on desktop and mobile (3.7s)
+  ✓  1 e2e/inventory.spec.js:4:1 › complete dealership workflow on desktop and mobile (5.0s)
+  ✓  2 e2e/logout.spec.js:7:3 › logout stays reachable on compact desktop and survives reload (877ms)
+  ✓  3 e2e/logout.spec.js:7:3 › logout stays reachable on mobile and survives reload (883ms)
 
-  1 passed (4.3s)
+  3 passed (7.6s)

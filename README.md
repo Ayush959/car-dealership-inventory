@@ -55,7 +55,7 @@ Registration always creates a buyer. No request field can grant administrator pr
 
 ## Features and behavior
 
-- Registration, login, logout, and an authenticated session that survives a page reload within the same tab.
+- Registration, login, a visible sign-out button in the sticky header on desktop and mobile, and an authenticated session that survives a page reload within the same tab. Signing out clears the saved session and resets the workspace filters.
 - Responsive dashboard, original SVG vehicle illustrations, inventory valuation, stock counts, category tabs, free-text search, minimum/maximum price, in-stock filtering, and sorting.
 - Purchase confirmation; sold-out vehicles cannot be purchased. A conditional SQL update prevents overselling during concurrent purchases.
 - Administrator forms to add, edit, delete, and restock vehicles, with loading, error, success, and empty states.

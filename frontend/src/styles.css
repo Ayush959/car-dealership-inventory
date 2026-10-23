@@ -76,6 +76,10 @@ h3,
   flex-direction: column;
   padding: 31px 22px 0;
   z-index: 30;
+  overflow-y: auto;
+}
+.sidebar > * {
+  flex-shrink: 0;
 }
 .brand {
   display: flex;
@@ -240,15 +244,15 @@ h3,
 .icon-button:hover {
   background: #eef0e8;
 }
-.sidebar-user .icon-button {
-  margin-left: auto;
-}
 .main {
   margin-left: 238px;
   flex: 1;
   min-width: 0;
 }
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   height: 76px;
   background: #fff;
   border-bottom: 1px solid var(--line);
@@ -273,6 +277,11 @@ h3,
   gap: 8px;
   font-size: 10px;
   color: #7b8579;
+}
+.sign-out-button {
+  min-height: 40px;
+  flex-shrink: 0;
+  font-size: 11px;
 }
 .live-dot,
 .small-dot {
@@ -1167,7 +1176,7 @@ label select {
     font-size: 0;
   }
   .role-pill {
-    font-size: 9px;
+    display: none;
   }
   .breadcrumb {
     font-size: 10px;
