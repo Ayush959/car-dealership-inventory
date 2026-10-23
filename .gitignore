@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+*.db
+*.db-*
+.env
+.jwt-secret
+node_modules/
+dist/
+test-results/
+playwright-report/
