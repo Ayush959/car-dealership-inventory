@@ -28,7 +28,7 @@ def local_secret():
     # A generated development key survives restarts and is never committed.
     path = ROOT / ".jwt-secret"
     try:
-        with path.open("x", opener=lambda p, flags: os.open(p, flags, 0o600)) as file:
+        with open(path, "x", opener=lambda p, flags: os.open(p, flags, 0o600)) as file:
             file.write(secrets.token_hex(32))
     except FileExistsError:
         pass
