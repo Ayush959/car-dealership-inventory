@@ -1,0 +1,13 @@
+
+> motorhaus-inventory@1.0.0 build
+> vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 1582 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.68 kB │ gzip:  0.40 kB
+dist/assets/index-D-P0eu5r.css   24.06 kB │ gzip:  6.29 kB
+dist/assets/index-CNSfczVD.js   253.97 kB │ gzip: 78.33 kB
+✓ built in 1.92s

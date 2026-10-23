@@ -1,0 +1,12 @@
+
+> motorhaus-inventory@1.0.0 test:e2e
+> playwright test
+
+
+Running 1 test using 1 worker
+
+(node:15725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e/inventory.spec.js:4:1 › complete dealership workflow on desktop and mobile (3.7s)
+
+  1 passed (4.3s)
